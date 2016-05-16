@@ -17,19 +17,19 @@ if( !$email || !preg_match('/^[^\@]+@.*\.[a-z]{2,6}$/i', $email ) ) {
 }
 
 // Checking reCaptcha
-if ($_POST["g-recaptcha-response"]) {
-  //
-  $resp = file_get_contents( "https://www.google.com/recaptcha/api/siteverify?secret={$privatekey}&response={$_POST['g-recaptcha-response']}&remoteip={$_SERVER['REMOTE_ADDR']}" );
-  $resp = json_decode( $resp );
-  // If captcha failed
-  if( $resp->success == false ) {
-    $json['error']['recaptcha'] = 'Incorrect code. Please try again.';
-  }
+// if ($_POST["g-recaptcha-response"]) {
+//   //
+//   $resp = file_get_contents( "https://www.google.com/recaptcha/api/siteverify?secret={$privatekey}&response={$_POST['g-recaptcha-response']}&remoteip={$_SERVER['REMOTE_ADDR']}" );
+//   $resp = json_decode( $resp );
+//   // If captcha failed
+//   if( $resp->success == false ) {
+//     $json['error']['recaptcha'] = 'Incorrect code. Please try again.';
+//   }
   
-//
-} else {
-    $json['error']['recaptcha'] = 'Please prove that you are not a robot.';
-}
+// //
+// } else {
+//     $json['error']['recaptcha'] = 'Please prove that you are not a robot.';
+// }
 
 
 // If no errors
